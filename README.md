@@ -1,0 +1,1 @@
+# store_registration_module
