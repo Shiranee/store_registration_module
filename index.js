@@ -1,12 +1,16 @@
 const http = require('http');
+const fs = require('fs');
+const url = require('url');
+
+const mainPage = fs.readFileSync(`${__dirname}/templates/main.html`, 'utf-8');
 
 const server = http.createServer((req, res) => {
   pathName = req.url;
 
-  if(pathName === '/' || pathName === '/overview') {
-    res.end('overview');
+  if(pathName === '/' || pathName === '/main') {
+    res.end(mainPage);
   } else if(pathName === '/product') {
-    res.end('product');
+    res.end('/index.html');
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',
