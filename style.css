@@ -185,9 +185,9 @@ body {
 /* CLASSES TO MAKE MODAL WORK */
 .close-modal {
   position: absolute;
-  /* top: 1.2rem; */
-  right: 2rem;
-  font-size: 5rem;
+  top: -0.5rem;
+  right: 1rem;
+  /* font-size: 5rem; */
   color: #333;
   cursor: pointer;
   border: none;
@@ -204,15 +204,17 @@ body {
 }
 
 .modal {
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  height: 40%;
-
+  height: 50%;
   background-color: white;
-  /* padding: 6rem; */
+  padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
@@ -229,3 +231,43 @@ body {
   z-index: 5;
 }
 /* -------------------------- */
+
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.form-group {
+  flex: 1 1 45%; /* Flex-grow, flex-shrink, flex-basis */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group p {
+  margin: 0;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.modal button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #959aa0;
+}
