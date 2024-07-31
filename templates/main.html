@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <!-- <iframe width="0" height="0" src="https://www.youtube.com/embed/gwWe_SYRQNQ?si=T-PxgX5wzkI1UpZF&autoplay=1"
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/gwWe_SYRQNQ?si=T-PxgX5wzkI1UpZF&autoplay=1"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-  </iframe> -->
+  </iframe>
 
   <header class="main-header">
       <img src="/images/icon.jpg">
@@ -35,6 +35,7 @@
     <button class="close-modal">&times;</button>
     <h1>New Store</h1>
     <div class="form-container">
+
       <div class="form-group">
           <p class="store-form">CNPJ</p>
           <input type="text" placeholder=""/>
@@ -44,68 +45,61 @@
           <input type="text" placeholder=""/>
       </div>
       <div class="form-group">
-          <p class="store-form">Name</p>
-          <input type="text" placeholder=""/>
+        <p class="store-form">Name</p>
+        <input type="text" placeholder=""/>
+      </div>
+      <div class = 'form-names'>
+        <div class="form-group">
+          <p class="store-form">Delivery Point</p>
+          <input type="checkbox" id="delivery-bool" placeholder=""/>
+        </div>
       </div>
       <div class="form-group">
         <p class="store-form">Social Name</p>
         <input type="text" placeholder=""/>
       </div>
-      <div class="form-group">
-        <p class="store-form">Delivery Point</p>
-        <input type="checkbox" placeholder=""/>
+      <div class="inaugurated">
+        <p class="store-form">Inaugurated At</p>
+        <input type="text" placeholder=""/>
       </div>
-      <div class="form-group">
-          <p class="store-form">Inaugurated At</p>
-          <input type="text" placeholder=""/>
-      </div>
+
     </div>
     <button>Finish</button>
   </div>
   <div class="overlay hidden"></div>
 
-
     <div class="content-box">
-      <table>
-        <tr id = 'table-title'>
-          <th>Id</th>
-          <th>Status</th>
-          <th>Cnpj</th>
-          <th>State inscription</th>
-          <th>Name</th>
-          <th>Social Name</th>
-          <th>Delivery Point</th>
-          <th>Inaugurated At</th>
-          <th>Closured At</th>
-          <th>Last Update</th>
-        </tr>
-        <tr>
-          <td>Id</td>
-          <td><input type="checkbox"></td>
-          <td>Cnpj</td>
-          <td>State inscription</td>
-          <td>Name</td>
-          <td>Social Name</td>
-          <td>Delivery Point</td>
-          <td>Inaugurated At</td>
-          <td>Closured At</td>
-          <td>Last Update</td>
-        </tr>
-      </tr>
-      <tr>
-        <td>Id</td>
-        <td><input type="checkbox"></td>
-        <td>Cnpj</td>
-        <td>State inscription</td>
-        <td>Name</td>
-        <td>Social Name</td>
-        <td>Delivery Point</td>
-        <td>Inaugurated At</td>
-        <td>Closured At</td>
-        <td>Last Update</td>
-      </tr>
-      </table>
+      <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-page">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                          <tr id = 'table-title'>
+                            <th>Id</th>
+                            <th>Status</th>
+                            <th>Cnpj</th>
+                            <th>State inscription</th>
+                            <th>Name</th>
+                            <th>Social Name</th>
+                            <th>Delivery Point</th>
+                            <th>Inaugurated At</th>
+                            <th>Closured At</th>
+                            <th>Last Update</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+      </div>
     </div>
-  </div>  
+  </div>
 </body>
 </html>
