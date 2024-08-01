@@ -1,10 +1,11 @@
 // 'use strict';
 
+let currentSlide = 0;
+
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('#new-store-btn');
-
 const openModal = function () {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
@@ -28,10 +29,6 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
   const rowsPerPage = 10;
@@ -108,3 +105,19 @@ document.addEventListener('DOMContentLoaded', function () {
   renderTable();
   updateButtons();
 });
+
+
+function showSlide(index) {
+  const carousel = document.getElementById('carousel');
+  const totalSlides = document.querySelectorAll('.carousel-item').length;
+  if (index >= 0 && index < totalSlides) {
+    currentSlide = index;
+    carousel.style.transform = `translateX(-${100 * currentSlide}%)`;
+  }
+}
+
+function moveSlide(direction) {
+  const totalSlides = document.querySelectorAll('.carousel-item').length;
+  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}

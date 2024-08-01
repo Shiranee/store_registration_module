@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Stores</title>
+  <script src="/templates/script.js" defer></script>
+  <link href="/templates/style.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="/images/icon.jpg">
+</head>
+
+<body>
+  <!-- <iframe width="0" height="0" src="https://www.youtube.com/embed/gwWe_SYRQNQ?si=T-PxgX5wzkI1UpZF&autoplay=1"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+  </iframe> -->
+
+  <header class="main-header">
+      <img src="/images/icon.jpg">
+      <text>Doofenshmirtz Evil Incorporated</text>
+  </header>
+
+  <div class="module-box">
+      <div id="module-buttons">
+        <button onclick="showSlide(0)">Button 1</button>
+        <button onclick="showSlide(1)">Button 2</button>
+        <button onclick="showSlide(2)">Button 3</button>
+        <button onclick="showSlide(3)">Button 4</button>
+        <button onclick="showSlide(4)">Button 5</button>
+      </div>
+  
+    <div class="content-box">
+      <div class="carousel" id="carousel">
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x300?text=Slide+1" alt="Slide 1"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x300?text=Slide+2" alt="Slide 2"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x300?text=Slide+3" alt="Slide 3"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x300?text=Slide+4" alt="Slide 4"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x300?text=Slide+5" alt="Slide 5"></div>
+      </div>
+      <button class="prev" onclick="moveSlide(-1)">❮</button>
+      <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
+
+</body>
+</html>
