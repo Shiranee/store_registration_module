@@ -37,74 +37,74 @@ document.addEventListener('DOMContentLoaded', function () {
   const nextButton = document.getElementById('nextButton');
   
   let currentPage = 0;
+  let data = [];
   let totalRows = 0;
 
-  // Sample data generation for demonstration
-  const data = [];
-  for (let i = 1; i <= 100; i++) {
-      data.push({
-          id: i,
-          status: `<input type="checkbox">`,
-          cnpj: `CNPJ ${i}`,
-          stateInscription: `State Inscription ${i}`,
-          name: `Name ${i}`,
-          socialName: `Social Name ${i}`,
-          deliveryPoint: `Delivery Point ${i}`,
-          inauguratedAt: `Inaugurated At ${i}`,
-          closuredAt: `Closured At ${i}`,
-          lastUpdate: `Last Update ${i}`
-      });
-  }
-  
-  function renderTable() {
-      dataTable.innerHTML = '';
-      const start = currentPage * rowsPerPage;
-      const end = Math.min(start + rowsPerPage, totalRows);
-      
-      for (let i = start; i < end; i++) {
-          const row = data[i];
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-              <td>${row.id}</td>
-              <td>${row.status}</td>
-              <td>${row.cnpj}</td>
-              <td>${row.stateInscription}</td>
-              <td>${row.name}</td>
-              <td>${row.socialName}</td>
-              <td>${row.deliveryPoint}</td>
-              <td>${row.inauguratedAt}</td>
-              <td>${row.closuredAt}</td>
-              <td>${row.lastUpdate}</td>
-          `;
-          dataTable.appendChild(tr);
+  async function fetchData() {
+    try {
+      const response = await fetch('/api/stores');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      const result = await response.json();
+      data = result;
+      totalRows = data.length;
+      renderTable();
+      updateButtons();
+      console.log('Fetched Data:', result); // Log the fetched data
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
-  
+
+  function renderTable() {
+    dataTable.innerHTML = '';
+    const start = currentPage * rowsPerPage;
+    const end = Math.min(start + rowsPerPage, totalRows);
+    
+    for (let i = start; i < end; i++) {
+      const row = data[i];
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${row.id}</td>
+        <td><input type="checkbox" id="delivery-bool" ${row.status ? 'checked' : ''}/></td>
+        <td>${row.cnpj}</td>
+        <td>${row.state_inscription}</td>
+        <td>${row.name}</td>
+        <td>${row.name_company}</td>
+        <td><input type="checkbox" id="delivery-bool" ${row.delivery_point ? 'checked' : ''}/></td>
+        <td>${row.inaugurated_at}</td>
+        <td>${(row.closured_at === null) ? 'Open' : new Date(row.closured_at)}</td>
+        <td>${row.updated_at}</td>
+      `;
+      dataTable.appendChild(tr);
+    }
+  }
+
   function updateButtons() {
-      prevButton.disabled = currentPage === 0;
-      nextButton.disabled = currentPage === Math.floor(totalRows / rowsPerPage);
+    prevButton.disabled = currentPage === 0;
+    nextButton.disabled = currentPage === Math.floor(totalRows / rowsPerPage);
   }
 
   prevButton.addEventListener('click', function () {
-      if (currentPage > 0) {
-          currentPage--;
-          renderTable();
-          updateButtons();
-      }
+    if (currentPage > 0) {
+      currentPage--;
+      renderTable();
+      updateButtons();
+    }
   });
 
   nextButton.addEventListener('click', function () {
-      if (currentPage < Math.floor(totalRows / rowsPerPage)) {
-          currentPage++;
-          renderTable();
-          updateButtons();
-      }
+    if (currentPage < Math.floor(totalRows / rowsPerPage)) {
+      currentPage++;
+      renderTable();
+      updateButtons();
+    }
   });
 
-  totalRows = data.length;
-  renderTable();
-  updateButtons();
+  fetchData(); // Fetch the data when the page loads
 });
+
 
 
 function showSlide(index) {
@@ -120,4 +120,25 @@ function moveSlide(direction) {
   const totalSlides = document.querySelectorAll('.carousel-item').length;
   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
   showSlide(currentSlide);
+}
+
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
 }

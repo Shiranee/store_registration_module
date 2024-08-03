@@ -1,15 +1,21 @@
-/* Pages Settings */
+/* General Settings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f3e8f3;
 }
 
 @media (prefers-color-scheme: light) {
   .page-theme {
     background: #F7F7F7;
-    font-size: 15px;
     color: #444;
   }
 }
@@ -17,60 +23,51 @@
 @media (prefers-color-scheme: dark) {
   .page-theme {
     background: #2e2e2e;
-    font-size: 15px;
-    color: white;
+    color: #fff;
   }
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-/* Pages Settings */
-
-/* Main header */
+/* Header */
 .main-header {
   display: flex;
   align-items: center;
-  width: 100%;
   height: 55px;
   background-color: #b7a0b7;
   border-bottom: 0.1px solid rgb(202, 202, 202);
-}
-
-.main-header text {
-  width: 100%;
-  font-size: 40px;
-  margin-left: 15px;
-  font-weight: bold;
-  white-space: nowrap;
+  padding: 0 15px;
 }
 
 .main-header img {
   width: 100px;
   height: 50px;
-  margin-left: 15px;
 }
-/* Main header */
 
+.main-header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
+/* Module Box */
 .module-box {
- width: 95%;
- height: 90%;
- margin-top: 20px;
- align-self: center;
- border-radius: 50px;
+  width: 95%;
+  height: 90%;
+  margin: 20px auto;
+  border-radius: 50px;
 }
 
 .module-header {
   display: flex;
   justify-content: space-between;
-  /* width: 100%; */
   align-items: center;
-  margin-right: 45px;
 }
 
-#new-store-btn button {
+#new-store-btn {
+  padding: 0 20px;
+}
+
+#new-store-btn {
   width: 30vh;
   height: 30px;
   font-size: 1vw;
@@ -83,14 +80,8 @@ body {
   background-color: #d6d6d6;
 }
 
-#new-store-btn button:hover {
+#new-store-btn:hover {
   background-color: #d8dee6;
-}
-
-#new-store-btn h1 {
-  font-size: 1.5vw;
-  white-space: nowrap;
-  margin: 0;
 }
 
 #module-name {
@@ -112,73 +103,54 @@ body {
   margin: 0;
 }
 
-/* CONTENT */
+/* Content Box */
 .content-box {
   display: flex;
-  /* width: 20%; */
   height: 90%;
-  /* padding: 0px 40px 25px 40px; */
-  /* padding-left: 20px; */
-  align-self: center;
-  border-bottom: none;
   justify-content: center;
-  /* align-items: flex-start; */
   overflow: auto;
   background-color: #f3e8f3;
   border: 1px solid #2e2e2e;
-  border-radius: 0px 40px 40px 40px;
+  border-radius: 0 40px 40px 40px;
 }
 
 .carousel-container {
   width: 90%;
-  /* margin-top: -20px; */
 }
 
-.content-box input {
-  width: 50%;
-  height: 100%;
-}
-/* CONTENT */
-
-/* TABLE */
-.content-box table {
+/* Table */
+#dataTable {
   width: 100%;
-  /* font-size: 1.5vw; */
-  white-space: nowrap;
-  margin: 0;
-  border-collapse: separate; /* Use separate border model */
-  border-spacing: 0 1.3vh; /* Add vertical space between rows */
-  /* border-radius: 40px 40px 40px 40px; */
+  border-collapse: separate;
+  border-spacing: 0 1.3vh;
 }
 
-.content-box th, .content-box td {
-  text-align: center; /* Center-align text horizontally */
-  vertical-align: middle; /* Center-align text vertically */
+#dataTable th, #dataTable td {
+  text-align: center;
+  vertical-align: middle;
   height: 5vh;
   padding: 10px;
 }
 
-.content-box th {
-  font-size: 1.2vw;
-  border-bottom: 1px solid #2e2e2e;
+#dataTable th {
+  font-size: 1vw;
   background-color: #e2e2d6;
+  border-bottom: 1px solid #2e2e2e;
 }
 
-.content-box tr {
-  font-size: 1vw;
+#dataTable tr {
   background-color: #e4cce4;
 }
 
-.content-box th:last-child, td:last-child {
-  border-radius: 0px 40px 40px 0px;
+#dataTable th:first-child, #dataTable td:first-child {
+  border-radius: 40px 0 0 40px;
 }
 
-.content-box th:first-child, td:first-child {
-  border-radius: 40px 0px 0px 40px;
+#dataTable th:last-child, #dataTable td:last-child {
+  border-radius: 0 40px 40px 0;
 }
-/* TABLE */
 
-/* CAROUSEL */
+/* Carousel */
 .carousel-controls {
   text-align: center;
   margin-top: 10px;
@@ -186,37 +158,19 @@ body {
 
 .carousel-controls button {
   padding: 10px 20px;
+  width: 100px;
   margin: 0 5px;
   cursor: pointer;
 }
-/* CAROUSEL */
 
-/* CLASSES TO MAKE MODAL WORK */
-.close-modal {
-  position: absolute;
-  top: -0.5rem;
-  right: 1rem;
-  /* font-size: 5rem; */
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-.modal h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
+/* Modal */
 .hidden {
   display: none;
 }
 
 .modal {
-  /* display: flex; */
-  /* flex-direction: column; */
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -230,7 +184,7 @@ body {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -238,6 +192,22 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .modal button {
@@ -250,17 +220,15 @@ body {
   cursor: pointer;
 }
 
-button:hover {
+.modal button:hover {
   background-color: #959aa0;
 }
-/* CLASSES TO MAKE MODAL WORK */
 
-/* FORM */
+/* Form */
 .form-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: space-between;
 }
 
 .form-group {
@@ -269,7 +237,7 @@ button:hover {
   flex-direction: column;
 }
 
-.form-group p {
+.form-group label {
   margin: 0;
   font-weight: bold;
 }
@@ -282,17 +250,71 @@ button:hover {
   border-radius: 3px;
 }
 
-.inaugurated input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+#delivery-point {
+  width: auto;
 }
 
-.inaugurated {
-  font-weight: bold;
+/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+/* The search field */
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+/* The search field when it gets focus/clicked on */
+#myInput:focus {outline: 3px solid #ddd;}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
 /* FORM */
 
 /* #module-buttons {
