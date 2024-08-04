@@ -77,6 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <td>${(row.closured_at === null) ? 'Open' : new Date(row.closured_at)}</td>
         <td>${row.updated_at}</td>
       `;
+      tr.style.cursor = 'pointer'; // Indicate that row is clickable
+      tr.addEventListener('click', () => {
+        window.location.href = `/stores/${row.id}`;
+      });
       dataTable.appendChild(tr);
     }
   }
@@ -123,15 +127,15 @@ function moveSlide(direction) {
 }
 
 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+function dropdown(refElement) {
+  document.getElementById(refElement).classList.toggle("show");
 }
 
-function filterFunction() {
+function filterFunction(refElement) {
   var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
+  div = document.getElementById(refElement);
   a = div.getElementsByTagName("a");
   for (i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
@@ -142,3 +146,25 @@ function filterFunction() {
     }
   }
 }
+
+async function fetchData(apiVar, refElement) {
+  try {
+    const response = await fetch('/api/stores');
+    const result = await response.json();
+    
+    const dropdownElement = document.getElementById(refElement);
+    
+    for (let i = 0; i < result.length; i++) {
+      let row = result[i];
+      const content = document.createElement('a');
+      content.href = `#${row[apiVar]}`;
+      content.textContent = row[apiVar];
+      dropdownElement.appendChild(content);
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+fetchData('name', 'store-name');
+fetchData('cnpj', 'store-cnpj');

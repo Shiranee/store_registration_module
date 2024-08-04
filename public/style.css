@@ -1,4 +1,14 @@
 /* General Settings */
+:root {
+  --primary-color: #b7a0b7;
+  --secondary-color: #ffffff;
+  --tertiary-color:#c6a7c6;
+  --border-color:  #222;
+  --text-color: #444;
+  --text-color-light: #e7e7e7;
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,21 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #f3e8f3;
-}
-
-@media (prefers-color-scheme: light) {
-  .page-theme {
-    background: #F7F7F7;
-    color: #444;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .page-theme {
-    background: #2e2e2e;
-    color: #fff;
-  }
+  background: var(--secondary-color);
 }
 
 /* Header */
@@ -32,7 +28,7 @@ body {
   display: flex;
   align-items: center;
   height: 55px;
-  background-color: #b7a0b7;
+  background-color: var(--primary-color);
   border-bottom: 0.1px solid rgb(202, 202, 202);
   padding: 0 15px;
 }
@@ -68,215 +64,79 @@ body {
 }
 
 #new-store-btn {
-  width: 30vh;
-  height: 30px;
-  font-size: 1vw;
+  width: 12vw;
+  height: 5vh;
   font-weight: bold;
-  border-radius: 40px 40px 40px 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #c298c2;
+  color: var(--border-color);
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
   overflow: hidden;
-  background-color: #d6d6d6;
 }
 
-#new-store-btn:hover {
-  background-color: #d8dee6;
+#new-store-btn:hover, #new-store-btn:focus{
+  background-color: #cab1ca;
 }
 
 #module-name {
   width: 20%;
   height: 50px;
-  border: 1px solid #2e2e2e;
+  /* border: 1px solid black; */
   border-bottom: none;
   border-radius: 40px 40px 0px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #997a99;
-}
-
-#module-name h1 {
-  font-size: 1.5vw;
+  background-color: var(--tertiary-color);
+  font-size: 1.4rem;
   white-space: nowrap;
   margin: 0;
 }
 
-/* Content Box */
-.content-box {
-  display: flex;
-  height: 90%;
-  justify-content: center;
-  overflow: auto;
-  background-color: #f3e8f3;
-  border: 1px solid #2e2e2e;
-  border-radius: 0 40px 40px 40px;
-}
-
-.carousel-container {
-  width: 90%;
-}
-
-/* Table */
-#dataTable {
-  width: 100%;
-  border-collapse: separate;
-  /* border-spacing: 0 1.3vh; */
-}
-
-#dataTable th, #dataTable td {
-  text-align: center;
-  vertical-align: middle;
-  height: 5vh;
-  padding: 10px;
-}
-
-#dataTable th {
-  font-size: 1vw;
-  background-color: #e2e2d6;
-  border-bottom: 1px solid #2e2e2e;
-}
-
-#dataTable tr {
-  background-color: #e4cce4;
-}
-
-#table-title th:first-child, #table-title td:first-child {
-  border-radius: 40px 0 0 40px;
-}
-
-#table-title th:last-child, #table-title td:last-child {
-  border-radius: 0 40px 40px 0;
-}
-
-/* Carousel */
-.carousel-controls {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.carousel-controls button {
-  padding: 10px 20px;
-  width: 100px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-/* Modal */
-.hidden {
-  display: none;
-}
-
-.modal {
+#stores-filters {
+  width: 60vw;
+  height: 45px;
+  display: inline-flex;
+  justify-content: space-evenly;
   align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 50%;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  margin: 0 auto;
+  background-color: var(--tertiary-color);
+  border-radius: 40px;
+  border: 1px solid #919191;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 5;
-}
-
-.close-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.modal h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.modal button {
-  margin-top: 2rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #333;
-  color: white;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.modal button:hover {
-  background-color: #959aa0;
-}
-
-/* Form */
-.form-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.form-group {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin: 0;
-  font-weight: bold;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-#delivery-point {
-  width: auto;
+#stores-filters h1 {
+  font-size: 1em;
 }
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
+  width: 16vw;
+  height: 4vh;
+  font-weight: bold;
+  background-color: #a392a3;
+  color: var(--border-color);
   font-size: 16px;
   border: none;
   cursor: pointer;
+  overflow: hidden;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #c6b9c6;
 }
 
 /* The search field */
 #myInput {
-  box-sizing: border-box;
-  background-image: url('searchicon.png');
-  background-position: 14px 12px;
+  width: 100%;
+  /* box-sizing: border-box; */
+  /* background-position: 14px 12px; */
   background-repeat: no-repeat;
   font-size: 16px;
-  padding: 14px 20px 12px 45px;
+  padding: 14px 20px 12px 10px;
   border: none;
   border-bottom: 1px solid #ddd;
 }
@@ -288,6 +148,7 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
+  /* left: 1vw; */
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -295,9 +156,11 @@ body {
   display: none;
   position: absolute;
   background-color: #f6f6f6;
-  min-width: 230px;
+  min-width: 30px;
   border: 1px solid #ddd;
   z-index: 1;
+  max-height: 70vh; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 /* Links inside the dropdown */
@@ -314,8 +177,65 @@ body {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+/* Content Box */
+.content-box {
+  /* display: flex; */
+  height: 90%;
+  padding: 15px;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  border: 1px solid #c3c3c3;
+  border-radius: 0 40px 40px 40px;
+}
 
-/* FORM */
+/* Table */
+#dataTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1.3vh;
+}
+
+#dataTable th, #dataTable td {
+  text-align: center;
+  vertical-align: middle;
+  height: 5vh;
+  padding: 10px;
+}
+
+#table-title th {
+  font-size: 1vw;
+  margin-bottom: 100px;
+  background-color: #e4cce4;
+  /* border-bottom: 1px solid #2e2e2e; */
+}
+
+#table-content td {
+  font-size: .9vw;
+  background-color: #fff4ff;
+  border-bottom: 1px solid #989898;
+}
+
+#table-title th:first-child, #table-title td:first-child {
+  border-radius: 40px 0 0 40px;
+}
+
+#table-title th:last-child, #table-title td:last-child {
+  border-radius: 0 40px 40px 0;
+}
+
+/* Carousel */
+.carousel-controls {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.carousel-controls button {
+  padding: 10px 20px;
+  width: 100px;
+  margin: 0 5px;
+  cursor: pointer;
+}
 
 /* #module-buttons {
   width: 20%;
@@ -376,3 +296,215 @@ body {
 .next {
   right: 10px;
 } */
+
+/* Modal */
+/* Modal */
+.hidden {
+  display: none;
+}
+
+.modal {
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  border-radius: 5px;
+  z-index: 10;
+  overflow-y: auto; /* Add scroll if needed */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal button {
+  /* margin-top: 2rem; */
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 10;
+}
+
+.modal button:hover {
+  background-color: #959aa0;
+}
+
+.container {
+  position: relative;
+  max-width: 100%; /* Adjust to fit modal */
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.container header {
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.container header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 3px;
+  width: 27px;
+  border-radius: 8px;
+  background-color: #4070f4;
+}
+
+.container form {
+  position: relative;
+  margin-top: 16px;
+  min-height: 490px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.container form .form {
+  position: absolute;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+.container form .title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 6px 0;
+  color: #333;
+}
+
+.container form .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+form .fields .input-field {
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+}
+
+.input-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.input-field input,
+select {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+}
+
+.input-field input:focus,
+.input-field select:focus {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.input-field select,
+.input-field input[type="date"] {
+  color: #707070;
+}
+
+.input-field input[type="date"]:valid {
+  color: #333;
+}
+
+.container form button,
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+  margin: 25px 0;
+  background-color: #4070f4;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.container form .btnText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+form button:hover {
+  background-color: #265df2;
+}
+
+form button i,
+form .backBtn i {
+  margin: 0 6px;
+}
+
+form .backBtn i {
+  transform: rotate(180deg);
+}
+
+form .buttons {
+  display: flex;
+  align-items: center;
+}
+
+form .buttons button,
+.backBtn {
+  margin-right: 14px;
+}
+
+form .fields #input-name {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 4px 0;
+}
