@@ -4,6 +4,8 @@ const { Client } = require('pg');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 const client = new Client({
   user: 'postgres',
   host: 'viaduct.proxy.rlwy.net',
@@ -38,6 +40,10 @@ app.use(express.static('public'));
 // Serve main page
 app.get('/stores', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'templates', 'main.html'));
+});
+
+app.get('/', (req, res) => {
+  res.render('page', {title: 'VINI BOY'})
 });
 
 // API endpoint to get all stores
@@ -113,6 +119,6 @@ app.use((req, res) => {
 });
 
 // Start the server
-app.listen(80, () => {
-  console.log('Listening on port 80');
+app.listen(3200, () => {
+  console.log('Listening on port 3200');
 });
