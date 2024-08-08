@@ -38,13 +38,13 @@ function asyncQuery(connection, sqlQuery, params = []) {
 app.use(express.static('public'));
 
 // Serve main page
-app.get('/stores', (req, res) => {
+app.get(['/stores', '/'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'templates', 'main.html'));
 });
 
-app.get('/', (req, res) => {
-  res.render('page', {title: 'VINI BOY'})
-});
+// app.get('/', (req, res) => {
+//   res.render('page', {title: 'VINI BOY'})
+// });
 
 // API endpoint to get all stores
 app.get('/api/stores', async (req, res) => {
@@ -119,6 +119,6 @@ app.use((req, res) => {
 });
 
 // Start the server
-app.listen(3200, () => {
+app.listen(80, () => {
   console.log('Listening on port 3200');
 });

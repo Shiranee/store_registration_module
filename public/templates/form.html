@@ -20,38 +20,15 @@
     <a href="/stores">
       <img src="/images/icon.jpg" alt="Company Icon">
     </a>
-    <text>Doofenshmirtz Evil Incorporated</text>
+    <h1>Doofenshmirtz Evil Incorporated</h1>
   </header>
-  <div id="store-details"></div>
-
-  <script>
-    async function fetchStoreData() {
-      const storeId = window.location.pathname.split('/').pop();
-      const response = await fetch(`/api/stores/${storeId}`);
-      const store = await response.json();
-      document.getElementById('store-details').innerHTML = `
-        <h1>${store.name}</h1>
-        <p>Status: ${store.status}</p>
-        <p>CNPJ: ${store.cnpj}</p>
-        <p>State Inscription: ${store.state_inscription}</p>
-        <p>Company Name: ${store.name_company}</p>
-        <p>Delivery Point: ${store.delivery_point}</p>
-        <p>Inaugurated At: ${store.inaugurated_at}</p>
-        <p>Closured At: ${store.closured_at}</p>
-        <p>Created At: ${store.created_at}</p>
-        <p>Updated At: ${store.updated_at}</p>
-      `;
-    }
-
-    fetchStoreData();
-  </script>
   
   <div class="module-box">
-      <div id="module-buttons">
-        <button onclick="showSlide(0)">Button 1</button>
-        <button onclick="showSlide(1)">Button 2</button>
-        <button onclick="showSlide(2)">Button 3</button>
-        <button onclick="showSlide(3)">Button 4</button>
+      <div id = "stores-filters">
+        <button onclick="showSlide(0)">Store Info</button>
+        <button onclick="showSlide(1)">Adress</button>
+        <button onclick="showSlide(2)">Staff</button>
+        <button onclick="showSlide(3)"></button>
         <button onclick="showSlide(4)">Button 5</button>
       </div>
   
@@ -69,3 +46,28 @@
 
 </body>
 </html>
+
+<!-- 
+<div id="store-details"></div>
+
+<script>
+  async function fetchStoreData() {
+    const storeId = window.location.pathname.split('/').pop();
+    const response = await fetch(`/api/stores/${storeId}`);
+    const store = await response.json();
+    document.getElementById('store-details').innerHTML = `
+      <h1>${store.name}</h1>
+      <p>Status: ${store.status}</p>
+      <p>CNPJ: ${store.cnpj}</p>
+      <p>State Inscription: ${store.state_inscription}</p>
+      <p>Company Name: ${store.name_company}</p>
+      <p>Delivery Point: ${store.delivery_point}</p>
+      <p>Inaugurated At: ${store.inaugurated_at}</p>
+      <p>Closured At: ${store.closured_at}</p>
+      <p>Created At: ${store.created_at}</p>
+      <p>Updated At: ${store.updated_at}</p>
+    `;
+  }
+
+  fetchStoreData();
+</script> -->
