@@ -51,6 +51,8 @@ body {
   height: 90%;
   margin: 20px auto;
   border-radius: 50px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .module-header {
@@ -237,68 +239,6 @@ body {
   cursor: pointer;
 }
 
-/* #module-buttons {
-  width: 20%;
-  height: 50px;
-  border: 1px solid #2e2e2e;
-  border-bottom: none;
-  border-radius: 40px 40px 0px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-color: #997a99;
-} */
-
-/* 
-#module-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-#module-buttons button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%;
-  height: 300px;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-} */
-
-/* Modal */
-/* Modal */
 .hidden {
   display: none;
 }
@@ -507,4 +447,39 @@ form .fields #input-name {
   width: 100%;
   flex-direction: column;
   margin: 4px 0;
+}
+
+
+.form-carousel {
+  display: flex;
+}
+
+.carousel-form-item {
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-form-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }

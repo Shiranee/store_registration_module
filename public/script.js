@@ -109,11 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
   fetchData(); // Fetch the data when the page loads
 });
 
-
-
 function showSlide(index) {
-  const carousel = document.getElementById('carousel');
-  const totalSlides = document.querySelectorAll('.carousel-item').length;
+  const carousel = document.getElementById('form-carousel');
+  const totalSlides = document.querySelectorAll('.carousel-form-item').length;
   if (index >= 0 && index < totalSlides) {
     currentSlide = index;
     carousel.style.transform = `translateX(-${100 * currentSlide}%)`;
@@ -121,11 +119,10 @@ function showSlide(index) {
 }
 
 function moveSlide(direction) {
-  const totalSlides = document.querySelectorAll('.carousel-item').length;
+  const totalSlides = document.querySelectorAll('.carousel-form-item').length;
   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
   showSlide(currentSlide);
 }
-
 
 function dropdown(refElement) {
   document.getElementById(refElement).classList.toggle("show");
