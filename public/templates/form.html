@@ -37,55 +37,308 @@
   
     <div class="content-box">
       <div class="form-carousel" id="form-carousel">
+        
         <div class="carousel-form-item">
           <div class="container">
-            <header>New store</header>
+            <div id = form-header>
+              <header>Store info</header>
+              <button class='new-input-btn' id="alter-info-btn">Alter Info</button>
+            </div>
             <form action="#">
-              <div class="form first">
-                <div class="details personal">
-                  <div class="fields">
-                    <div class="input-field">
-                      <label>CNPJ</label>
-                      <input type="number" placeholder="Enter your CNPJ" required>
-                    </div>
-                    <div class="input-field">
-                      <label>State inscription</label>
-                      <input type="number" placeholder="Enter your State inscription" required>
-                    </div>
-                    <div class="input-field">
-                      <label>Delivery Point</label>
-                      <select required>
-                        <option disabled selected>Is a Delivery Point?</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                      </select>
-                    </div>
-                    <div class="input-field" id="input-name">
-                      <label>Name</label>
-                      <input type="text" placeholder="Store Name" required>
-                    </div>
-                    <div class="input-field" id="input-name">
-                      <label>Social Name</label>
-                      <input type="text" placeholder="Store Social Name" required>
-                    </div>
-                    <div class="input-field">
-                      <label>Inaugurated At</label>
-                      <input type="date" placeholder="Inauguration Date" required>
-                    </div>
-                  </div>
+              <div class="fields">
+                <div class="input-field">
+                  <label>CNPJ</label>
+                  <p class="general-text" id="form-cnpj">00.000.000/0000-00</p>
+                </div>
+                <div class="input-field">
+                  <label>State inscription</label>
+                  <p class="general-text" id="form-inscription">00000000000000</p>
+                </div>
+                <div class="input-field">
+                  <label>Delivery Point</label>
+                  <p class="general-text" id="form-delivery">Yes</p>
+                </div>
+                <div class="input-field" id="input-name">
+                  <label>Name</label>
+                  <p class="general-text" id="form-name">Doofenshmirtz Evil Inc.</p>
+                </div>
+                <div class="input-field" id="input-name">
+                  <label>Social Name</label>
+                  <p class="general-text" id="form-social-name">Doofenshmirtz Evil Incorporated</p>
+                </div>
+                <div class="input-field"  id = 'input-two'>
+                  <label>Inaugurated At</label>
+                  <p class="general-text" id="form-inauguration">17/08/2007</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Closure At</label>
+                  <p class="general-text" id="form-closure"></p>
                 </div>
               </div>
             </form>
           </div>
         </div>
+
+        <div class="carousel-form-item">
+          <div class="container">
+            <div id = form-header>
+              <header>Adress Info</header>
+              <button class='new-input-btn' id="alter-adress-btn">Alter Adress</button>
+            </div>
+            <form action="#">
+              <div class="fields">
+                <div class="input-field" id="input-name">
+                  <label>Full Adress</label>
+                  <p class="general-text" id="form-f-adress">Polly Parkway, 9297 - Center, Danville - CA, 89251-970</p>
+                </div>
+                <div class="input-field">
+                  <label>Postal Code</label>
+                  <p class="general-text" id="form-zipcode">89251-970</p>
+                </div>
+                <div class="input-field">
+                  <label>State</label>
+                  <p class="general-text" id="form-state">CA</p>
+                </div>
+                <div class="input-field">
+                  <label>City</label>
+                  <p class="general-text" id="form-city">Danville</p>
+                </div>
+                <div class="input-field"  id = 'input-two'>
+                  <label>Neighborhood</label>
+                  <p class="general-text" id="form-nighborhood">Center</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Street</label>
+                  <p class="general-text" id="form-street">Polly Parkway</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Number</label>
+                  <p class="general-text" id="form-number">9297</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Complement</label>
+                  <p class="general-text" id="form-complement">Bigest Building in the town.</p>
+                </div>
+              </div>
+            </form>
+            <table id="adress-table">
+              <header>Adresses</header>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Meterage</th>
+                  <th>Postal Code</th>
+                  <th>Regional</th>
+                  <th>State</th>
+                  <th>City</th>
+                  <th>Neighborhood</th>
+                  <th>Street</th>
+                  <th>Number</th>
+                  <th>Complement</th>
+                  <th>Placed At</th>
+                  <th>Lat - Lng</th>
+                </tr>
+              </thead>
+              
+              <tbody id = 'adress-content'>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked=""></td>
+                  <td>500</td>
+                  <td>89251-970</td>
+                  <td>Danville</td>
+                  <td>CA</td>
+                  <td>Danville</td>
+                  <td>Center</td>
+                  <td>Polly Parkway</td>
+                  <td>9297</td>
+                  <td>Bigest tower in the town.</td>
+                  <td>Street</td>
+                  <td>43.177141 / -100.353136</td>
+                </tr>
+                <!-- Table rows will be dynamically inserted here -->
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+        <div class="carousel-form-item">
+          <div class="container">
+            <div id = form-header>
+              <header>Social Info</header>
+              <button class='new-input-btn' id="alter-social-btn">Alter Social</button>
+            </div>
+            <form action="#">
+              <div class="fields">
+                <div class="input-field">
+                  <label>Phone</label>
+                  <p class="general-text" id="form-social-phone">47999999999</p>
+                </div>
+                <div class="input-field">
+                  <label>Whatsapp</label>
+                  <p class="general-text" id="form-social-whatsapp">47999999999</p>
+                </div>
+                <div class="input-field">
+                  <label>E-mail</label>
+                  <p class="general-text" id="form-social-email">evil.inc@doofenshmirtz.com</p>
+                </div>
+                <div class="input-field" id="input-two">
+                  <label>Instagram</label>
+                  <p class="general-text" id="form-social-instagram">@doofenshmirtz</p>
+                </div>
+                <div class="input-field" id="input-two">
+                  <label>Facebook</label>
+                  <p class="general-text" id="form-social-facebook">@doofenshmirtz</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Photo</label>
+                  <a href="https://fiu-original.b-cdn.net/fontsinuse.com/use-images/122/122015/122015.png?filename=Captura%20de%20VLC_2017-09-14-20h53m53s647.png">
+                    <p class="general-text" id="form-social-photo">Store Picture</p>
+                  </a>
+                </div>
+              </div>
+            </form>
+            <table id="adress-table" style="width: 30%;">
+              <header>Working Days</header>
+              <thead>
+                <tr>
+                  <th>Open</th>
+                  <th>Day</th>
+                  <th>Opens</th>
+                  <th>Closes</th>
+                </tr>
+              </thead>
+              
+              <tbody id = 'adress-content'>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool"></td>
+                  <td>Sunday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Monday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Tuesday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Wednesday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Thursday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Friday  </td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="delivery-bool" checked></td>
+                  <td>Saturday</td>
+                  <td>10:00</td>
+                  <td>22:00</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+        <div class="carousel-form-item">
+          <div class="container">
+            <div id = form-header>
+              <header>Supervisor</header>
+              <button class='new-input-btn' id="alter-staff-btn">Alter Staff</button>
+            </div>
+            <form action="#">
+              <div class="fields">
+                <div class="input-field" id="input-name">
+                  <label>Name</label>
+                  <p class="general-text" id="form-staff-name">Heinz Doofenshmirtz</p>
+                </div>
+                <div class="input-field">
+                  <label>Phone</label>
+                  <p class="general-text" id="form-staff-phone">99999999999</p>
+                </div>
+                <div class="input-field">
+                  <label>Whatsapp</label>
+                  <p class="general-text" id="form-staff-whatsapp">99999999999</p>
+                </div>
+                <div class="input-field">
+                  <label>E-mail</label>
+                  <p class="general-text" id="form-staff-email">heinz@doofenshmirtz.com</p>
+                </div>
+                <div class="input-field" id = 'input-two'>
+                  <label>Photo</label>
+                  <a href="https://static.wikia.nocookie.net/phineasandferb/images/5/5d/Doofenshmirtz_Portrait.jpg">
+                    <p class="general-text" id="form-staff-photo">Employee Picture</p>
+                  </a>
+                </div>
+              </div>
+            </form>
+            <table id="adress-table">
+              <header>Other Staff</header>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Job</th>
+                  <th>Phone</th>
+                  <th>Whatsapp</th>
+                  <th>E-mail</th>
+                  <th>Photo</th>
+                </tr>
+              </thead>
+              
+              <tbody id = 'adress-content'>
+                <tr>
+                  <td>Heinz Doofenshmirtz</td>
+                  <td><input type="checkbox" id="delivery-bool" checked=""></td>
+                  <td>Scientist/Owner</td>
+                  <td>99999999999</td>
+                  <td>99999999999</td>
+                  <td>heinz@doofenshmirtz.com</td>
+                  <td>
+                    <a href="https://static.wikia.nocookie.net/phineasandferb/images/5/5d/Doofenshmirtz_Portrait.jpg">
+                      <p>Employee Picture</p>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Norm the Robot Man</td>
+                  <td><input type="checkbox" id="delivery-bool" checked=""></td>
+                  <td>Assistant</td>
+                  <td>99999999999</td>
+                  <td>99999999999</td>
+                  <td>norm@doofenshmirtz.com</td>
+                  <td>
+                    <a href="https://static.wikia.nocookie.net/phineasandferb/images/3/36/Profile_-_Norm.PNG">
+                      <p>Employee Picture</p>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div class="carousel-form-item">
         </div>
-        <div class="carousel-form-item">
-        </div>
-        <div class="carousel-form-item">
-        </div>
-        <div class="carousel-form-item">
-        </div>
+
       </div>
       <div class="carousel-controls">
         <button id="prev"onclick="moveSlide(-1)">Previous</button>
@@ -94,6 +347,270 @@
     </div>
 
   </div>
+
+  <div id="modal-2" class="modal hidden">
+    <button class="close-modal">&times;</button>
+    <div class="container">
+      <div id = form-header>
+        <header>Store info</header>
+      </div>
+      <form action="#">
+        <div class="fields">
+          <div class="input-field">
+            <label>CNPJ</label>
+            <input type="number" placeholder="Enter your CNPJ" required>
+          </div>
+          <div class="input-field">
+            <label>State inscription</label>
+            <input type="number" placeholder="Enter your State inscription" required>
+          </div>
+          <div class="input-field">
+            <label>Delivery Point</label>
+            <select required>
+              <option disabled selected>Is a Delivery Point?</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <label>Status</label>
+            <select required>
+              <option disabled selected>Store Status</option>
+              <option>Active</option>
+              <option>Inactive</option>
+            </select>
+          </div>
+          <div class="input-field" id="input-name">
+            <label>Name</label>
+            <input type="text" placeholder="Store Name" required>
+          </div>
+          <div class="input-field" id="input-name">
+            <label>Social Name</label>
+            <input type="text" placeholder="Store Social Name" required>
+          </div>
+          <div class="input-field"  id = 'input-two'>
+            <label>Inaugurated At</label>
+            <input type="date" placeholder="Inauguration Date" required>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Closure At</label>
+            <input type="date" placeholder="Inauguration Date" required>
+          </div>
+        </div>
+      </form>
+      <button class="nextBtn">
+        <span class="btnText">Finish</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="modal-3" class="modal hidden">
+    <button class="close-modal">&times;</button>
+    <div class="container">
+      <div id = form-header>
+        <header>Adress Info</header>
+      </div>
+      <form action="#">
+        <div class="input-field" id="input-name" style="width: 20%;">
+          <label>Status</label>
+          <select required>
+            <option disabled selected>Adress is Active</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="fields">
+          <div class="input-field">
+            <label>Postal Code</label>
+            <input type="number" placeholder="Enter Postal Code" required>
+          </div>
+          <div class="input-field">
+            <label>State</label>
+            <input type="Text" placeholder="Enter State" required>
+          </div>
+          <div class="input-field">
+            <label>City</label>
+            <input type="Text" placeholder="Enter City" required>
+          </div>
+          <div class="input-field"  id = 'input-two'>
+            <label>Neighborhood</label>
+            <input type="Text" placeholder="Enter Neighborhood" required>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Street</label>
+            <input type="Text" placeholder="Enter Street" required>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Number</label>
+            <input type="number" placeholder="Enter Street Number" required>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Complement</label>
+            <input type="Text" placeholder="Enter Complement" required>
+          </div>
+        </div>
+      </form>
+      <button class="nextBtn">
+        <span class="btnText">Finish</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="modal-4" class="modal hidden">
+    <button class="close-modal">&times;</button>
+    <div class="container">
+      <div id = form-header>
+        <header>Social Info</header>
+      </div>
+      <form action="#">
+        <div class="fields">
+          <div class="input-field">
+            <label>Phone</label>
+            <input type="number" placeholder="Enter your CNPJ" required>
+          </div>
+          <div class="input-field">
+            <label>Whatsapp</label>
+            <input type="number" placeholder="Enter your State inscription" required>
+          </div>
+          <div class="input-field">
+            <label>E-mail</label>
+            <input type="text" placeholder="Store Name" required>
+          </div>
+          <div class="input-field" id="input-two">
+            <label>Instagram</label>
+            <input type="text" placeholder="Store Social Name" required>
+          </div>
+          <div class="input-field" id="input-two">
+            <label>Facebook</label>
+            <input type="text" placeholder="Store Social Name" required>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Photo</label>
+            <input type="text" placeholder="Store Social Name" required>
+          </div>
+        </div>
+      </form>
+      <table id="adress-table" style="width: 30%;">
+        <header>Working Days</header>
+        <thead>
+          <tr>
+            <th>Open</th>
+            <th>Day</th>
+            <th>Opens</th>
+            <th>Closes</th>
+          </tr>
+        </thead>
+        
+        <tbody id = 'adress-content'>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Sunday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Monday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Tuesday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Wednesday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Thursday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Friday  </td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" id="delivery-bool"></td>
+            <td>Saturday</td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td><input type="text" style="width: 50px;"></td>
+            <td>+</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="nextBtn">
+        <span class="btnText">Finish</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="modal-5" class="modal hidden">
+    <button class="close-modal">&times;</button>
+    <div class="container">
+      <div id = form-header>
+        <header>Employee</header>
+      </div>
+      <form action="#">
+        <div class="fields">          
+          
+          <div class="input-field">
+            <label>Employee</label>
+            <select required>
+              <option disabled selected>Select a staff member</option>
+              <option>Yuseff Stroheim</option>
+              <option>Heinz Doofenshmirtz</option>
+              <option>Norm the Robot Man</option>
+            </select>
+          </div>
+          
+          <div class="input-field" id="input-name">
+            <label>Name</label>
+            <p class="general-text">Heinz Doofenshmirtz</p>
+          </div>
+          <div class="input-field">
+            <label>Phone</label>
+            <p class="general-text">99999999999</p>
+          </div>
+          <div class="input-field">
+            <label>Whatsapp</label>
+            <p class="general-text">99999999999</p>
+          </div>
+          <div class="input-field">
+            <label>E-mail</label>
+            <p class="general-text">heinz@doofenshmirtz.com</p>
+          </div>
+          <div class="input-field" id = 'input-two'>
+            <label>Photo</label>
+            <a href="https://static.wikia.nocookie.net/phineasandferb/images/5/5d/Doofenshmirtz_Portrait.jpg"><p class="general-text">Employee Picture</p></a>
+          </div>
+        </div>
+      </form>
+      <button class="nextBtn">
+        <span class="btnText">Finish</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="overlay hidden"></div>
 
 </body>
 </html>

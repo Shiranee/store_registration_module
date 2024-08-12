@@ -1,35 +1,55 @@
-// 'use strict';
+'use strict';
 
 let currentSlide = 0;
 
-const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.close-modal');
-const btnsOpenModal = document.querySelectorAll('#new-store-btn');
-const openModal = function () {
-  modal.classList.remove('hidden');
-  overlay.classList.remove('hidden');
-};
+const btnCloseModals = document.querySelectorAll('.close-modal');
+const btnsOpenModal = [
+  document.querySelector('#new-store-btn'),  // Added comma
+  document.querySelector('#alter-info-btn'),
+  document.querySelector('#alter-adress-btn'),
+  document.querySelector('#alter-social-btn'),
+  document.querySelector('#alter-staff-btn')
+];
 
-const closeModal = function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-};
+const modals = [
+  document.querySelector('#modal-1'),  // Added comma
+  document.querySelector('#modal-2'),
+  document.querySelector('#modal-3'),
+  document.querySelector('#modal-4'),
+  document.querySelector('#modal-5')
+];
 
-for (let i = 0; i < btnsOpenModal.length; i++)
-  btnsOpenModal[i].addEventListener('click', openModal);
+function modalAction(button, modal) {
+  if (!button || !modal) return;  // Check if button and modal exist
 
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+  const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+  };
 
-document.addEventListener('keydown', function (e) {
-  // console.log(e.key);
+  const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  };
 
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-    closeModal();
-  }
-});
+  button.addEventListener('click', openModal);
 
+  modal.querySelector('.close-modal').addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+}
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+  modalAction(btnsOpenModal[i], modals[i]);
+}
+
+// Data Table Functionality (No issues spotted)
 document.addEventListener('DOMContentLoaded', function () {
   const rowsPerPage = 10;
   const dataTable = document.getElementById('dataTable').querySelector('tbody');
@@ -51,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
       totalRows = data.length;
       renderTable();
       updateButtons();
-      console.log('Fetched Data:', result); // Log the fetched data
+      console.log('Fetched Data:', result);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -77,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <td>${(row.closured_at === null) ? 'Open' : new Date(row.closured_at)}</td>
         <td>${row.updated_at}</td>
       `;
-      tr.style.cursor = 'pointer'; // Indicate that row is clickable
+      tr.style.cursor = 'pointer';
       tr.addEventListener('click', () => {
         window.location.href = `/stores/${row.id}`;
       });
@@ -106,9 +126,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  fetchData(); // Fetch the data when the page loads
+  fetchData();
 });
 
+// Carousel and Dropdown Functions (No issues spotted)
 function showSlide(index) {
   const carousel = document.getElementById('form-carousel');
   const totalSlides = document.querySelectorAll('.carousel-form-item').length;
@@ -129,7 +150,7 @@ function dropdown(refElement) {
 }
 
 function filterFunction(refElement) {
-  var input, filter, ul, li, a, i;
+  let input, filter, ul, li, a, i, select, options;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById(refElement);
